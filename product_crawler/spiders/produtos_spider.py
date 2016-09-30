@@ -10,10 +10,11 @@ from scrapy.selector import Selector
 
 class AmericanasSpider(scrapy.Spider):
     name = 'product_crawler'    
-    
-    start_urls = ["http://busca.americanas.com.br/busca.php?Livros_titulo=&Livros_autor=&Livros_editora=&Livros_categoria=&ba=3&sort=6&page="+str(i) for i in range(1,76)]
-    start_urls.append(["http://busca.americanas.com.br/busca.php?q=jogos+xbox&sort=6&page="+str(i) for i in range(1,76)])
-    start_urls.append(["http://busca.americanas.com.br/busca.php?Filmes_titulo=&Filmes_artista=&Filmes_categoria=&Filmes_ano_producao=&ba=1&sort=6&page="+str(i) for i in range(1,76)])     
+
+    start_urls = ["http://busca.americanas.com.br/busca.php?q=jogos+xbox&sort=6&page="+str(i) for i in range(1, 76)]
+    for i in range(1, 100):
+        start_urls.append("http://busca.americanas.com.br/busca.php?Livros_titulo=&Livros_autor=&Livros_editora=&Livros_categoria=&ba=3&sort=6&page="+str(i))
+        start_urls.append("http://busca.americanas.com.br/busca.php?Filmes_titulo=&Filmes_artista=&Filmes_categoria=&Filmes_ano_producao=&ba=1&sort=6&page="+str(i))
 
     def parse(self, response):
         for a in response.css('section.products-area article div.top-area-product > a').extract(): 
