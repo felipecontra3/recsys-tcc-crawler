@@ -14,10 +14,11 @@ BOT_NAME = 'product_crawler'
 SPIDER_MODULES = ['product_crawler.spiders']
 NEWSPIDER_MODULE = 'product_crawler.spiders'
 
+#MONGODB_HOST = 'ec2-52-43-193-174.us-west-2.compute.amazonaws.com'
 MONGODB_HOST = 'localhost'
 #MONGODB_PORT = 27017
-MONGODB_DATABASE = 'crawler_teste'
-MONGODB_COLLECTION = 'produtos'
+MONGODB_DATABASE = 'tcc-recsys-mongo'
+MONGODB_COLLECTION = 'produto_novo'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'americanas_crawl (+http://www.yourdomain.com)'
